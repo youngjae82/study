@@ -1,0 +1,681 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ruleset xmlns="http://pmd.sf.net/ruleset/1.0.0" name="pmd-ruleset-v3-3.2.3over" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://pmd.sf.net/ruleset_xml_schema.xsd" xsi:schemaLocation="http://pmd.sf.net/ruleset/1.0.0 http://pmd.sf.net/ruleset_xml_schema.xsd">
+   <description>PMD Plugin preferences rule set</description>
+   <exclude-pattern>.*/ifhub/.*</exclude-pattern>
+   <rule ref="rulesets/java/empty.xml/EmptyCatchBlock"/>
+   <rule ref="rulesets/java/empty.xml/EmptyFinallyBlock"/>
+   <rule ref="rulesets/java/empty.xml/EmptyIfStmt"/>
+   <rule ref="rulesets/java/empty.xml/EmptyStatementNotInLoop"/>
+   <rule ref="rulesets/java/empty.xml/EmptyTryBlock"/>
+   <rule ref="rulesets/java/empty.xml/EmptyWhileStmt"/>
+   <rule ref="rulesets/java/unnecessary.xml/UnnecessaryConversionTemporary"/>
+   <rule ref="rulesets/java/braces.xml/WhileLoopsMustUseBraces"/>
+   <rule ref="rulesets/java/controversial.xml/AssignmentInOperand"/>
+   <rule ref="rulesets/java/controversial.xml/UnnecessaryConstructor"/>
+   <rule ref="rulesets/java/controversial.xml/UnnecessaryParentheses"/>
+   <rule ref="rulesets/java/controversial.xml/NullAssignment"/>
+   <rule ref="rulesets/java/controversial.xml/DoNotCallGarbageCollectionExplicitly"/>
+   <rule ref="rulesets/java/design.xml/AbstractClassWithoutAbstractMethod"/>
+   <rule ref="rulesets/java/design.xml/AssignmentToNonFinalStatic"/>
+   <rule ref="rulesets/java/design.xml/AvoidConstantsInterface"/>
+   <rule ref="rulesets/java/design.xml/AvoidReassigningParameters"/>
+   <rule ref="rulesets/java/design.xml/AvoidSynchronizedAtMethodLevel"/>
+   <rule ref="rulesets/java/design.xml/EqualsNull"/>
+   <rule ref="rulesets/java/design.xml/FinalFieldCouldBeStatic"/>
+   <rule ref="rulesets/java/design.xml/ImmutableField"/>
+   <rule ref="rulesets/java/design.xml/SimpleDateFormatNeedsLocale"/>
+   <rule ref="rulesets/java/design.xml/SimplifyBooleanExpressions"/>
+   <rule ref="rulesets/java/design.xml/SingularField"/>
+   <rule ref="rulesets/java/design.xml/SwitchStmtsShouldHaveDefault"/>
+   <rule ref="rulesets/java/design.xml/UncommentedEmptyMethod"/>
+   <rule ref="rulesets/java/design.xml/UnnecessaryLocalBeforeReturn"/>
+   <rule ref="rulesets/java/design.xml/CloseResource"/>
+   <rule ref="rulesets/java/design.xml/BadComparison"/>
+   <rule ref="rulesets/java/design.xml/IdempotentOperations"/>
+   <rule ref="rulesets/java/imports.xml/DuplicateImports"/>
+   <rule ref="rulesets/java/imports.xml/ImportFromSamePackage"/>
+   <rule ref="rulesets/java/logging-java.xml/SystemPrintln"/>
+   <rule ref="rulesets/java/naming.xml/MisleadingVariableName"/>
+   <rule ref="rulesets/java/naming.xml/VariableNamingConventions">
+   <properties>
+		<property name="memberPrefix" value="_"/>
+	 </properties>
+	 </rule>
+   <rule ref="rulesets/java/optimizations.xml/AvoidArrayLoops"/>
+   <rule ref="rulesets/java/optimizations.xml/UnnecessaryWrapperObjectCreation"/>
+   <rule ref="rulesets/java/strictexception.xml/AvoidThrowingNullPointerException"/>
+   <rule ref="rulesets/java/strictexception.xml/AvoidThrowingRawExceptionTypes"/>
+   <rule ref="rulesets/java/strings.xml/InefficientEmptyStringCheck"/>
+   <rule ref="rulesets/java/strings.xml/InefficientStringBuffering"/>
+   <rule ref="rulesets/java/strings.xml/StringInstantiation"/>
+   <rule ref="rulesets/java/strings.xml/StringToString"/>
+   <rule ref="rulesets/java/strings.xml/UselessStringValueOf"/>
+   <rule ref="rulesets/java/unusedcode.xml/UnusedFormalParameter"/>
+   <rule ref="rulesets/java/unusedcode.xml/UnusedPrivateField"/>
+   <rule ref="rulesets/java/unusedcode.xml/UnusedPrivateMethod"/>
+   <rule ref="rulesets/java/basic.xml/BrokenNullCheck"/>
+   <rule ref="rulesets/java/basic.xml/AvoidUsingHardCodedIP"/>
+   <rule ref="rulesets/java/basic.xml/CheckResultSet"/>
+   <rule ref="rulesets/java/codesize.xml/CyclomaticComplexity">
+   <properties>
+		<property name="showMethodsComplexity" value="true"/>
+		<property name="showClassesComplexity" value="false"/>
+		<property name="reportLevel" value="200"/>
+	 </properties>
+	 </rule>
+   <rule ref="rulesets/java/design.xml/CompareObjectsWithEquals"/>
+   <rule ref="rulesets/java/unusedcode.xml/UnusedLocalVariable"/>
+   <rule ref="rulesets/java/empty.xml/EmptySwitchStatements"/>
+   <rule ref="rulesets/java/empty.xml/EmptySynchronizedBlock"/>
+   <rule ref="rulesets/java/empty.xml/EmptyStaticInitializer"/>
+   <rule ref="rulesets/java/basic.xml/UnconditionalIfStatement"/>
+   <rule ref="rulesets/java/basic.xml/MisplacedNullCheck"/>
+   <rule ref="rulesets/java/basic.xml/ReturnFromFinallyBlock"/>
+   <rule ref="rulesets/java/basic.xml/AvoidUsingOctalValues"/>
+   <rule ref="rulesets/java/braces.xml/IfStmtsMustUseBraces"/>
+   <rule ref="rulesets/java/braces.xml/IfElseStmtsMustUseBraces"/>
+   <rule ref="rulesets/java/braces.xml/ForLoopsMustUseBraces"/>
+   <rule ref="rulesets/java/coupling.xml/LooseCoupling"/>
+   <rule ref="rulesets/java/design.xml/DefaultLabelNotLastInSwitchStmt"/>
+   <rule ref="rulesets/java/design.xml/NonCaseLabelInSwitchStatement"/>
+   <rule ref="rulesets/java/design.xml/MissingBreakInSwitch"/>
+   <rule ref="rulesets/java/design.xml/UncommentedEmptyConstructor"/>
+   <rule ref="rulesets/java/j2ee.xml/UseProperClassLoader"/>
+   <rule ref="rulesets/java/j2ee.xml/DoNotCallSystemExit"/>
+   <rule ref="rulesets/java/logging-java.xml/AvoidPrintStackTrace"/>
+   <rule ref="rulesets/java/naming.xml/MethodNamingConventions"/>
+   <rule ref="rulesets/java/naming.xml/ClassNamingConventions"/>
+   <rule ref="rulesets/java/naming.xml/SuspiciousConstantFieldName"/>
+   <rule ref="rulesets/java/naming.xml/AvoidFieldNameMatchingTypeName"/>
+   <rule ref="rulesets/java/naming.xml/AvoidFieldNameMatchingMethodName"/>
+   <rule ref="rulesets/java/naming.xml/PackageCase"/>
+   <rule ref="rulesets/java/strings.xml/UseEqualsToCompareStrings"/>
+   <rule ref="rulesets/java/unnecessary.xml/UnnecessaryReturn"/>
+   <rule ref="rulesets/java/unnecessary.xml/UselessOperationOnImmutable"/>
+   <rule ref="rulesets/java/design.xml/PositionLiteralsFirstInComparisons"/>
+   <rule ref="rulesets/java/design.xml/UseCollectionIsEmpty"/>
+   <rule ref="rulesets/java/imports.xml/UnusedImports"/>
+   <rule ref="rulesets/java/strings.xml/UnnecessaryCaseChange"/>
+   <rule ref="rulesets/java/controversial.xml/AvoidFinalLocalVariable"/>
+   <rule ref="rulesets/java/j2ee.xml/DoNotUseThreads"/>
+   <rule ref="rulesets/java/strictexception.xml/AvoidCatchingNPE"/>
+	 <rule  name="UseGetBeanInsteadOfNew"
+	 	 language="java"
+     since="5.0"
+	   message="App, Biz, DEM, DQM class should be called by BaseUtil.getBean."
+	   class="net.sourceforge.pmd.lang.rule.XPathRule">
+	   <description>
+	   App, Biz, DEM, DQM class should be called by BaseUtil.getBean. Not allowed using 'new' command.
+	   </description>
+	   <properties>
+	     <property name="xpath">
+	     <value>
+	 <![CDATA[
+	 //VariableInitializer//AllocationExpression/ClassOrInterfaceType
+	 [
+	 ends-with(@Image,'App')
+	 or
+	 ends-with(@Image,'Biz')
+	 or
+	 ends-with(@Image,'DEM')
+	 or
+	 ends-with(@Image,'DQM')
+	 ]
+	 ]]>
+	     </value>
+	     </property>
+	   </properties>
+	   <priority>3</priority>
+	   <example>
+	 <![CDATA[
+	 
+	 ]]>
+	   </example>
+	 </rule>
+	 <rule  name="NoUseGetBeanInVoClass"
+	 	language="java"
+     since="5.0"
+	   message="never use BaseUtil.getBean in VO class"
+	   class="net.sourceforge.pmd.lang.rule.XPathRule">
+	   <description>
+	   never use BaseUtil.getBean in VO class. 'new' command instead.
+	   </description>
+	   <properties>
+	     <property name="xpath">
+	     <value>
+	 <![CDATA[
+	 //Name[@Image='BaseUtil.getBean']/../../PrimarySuffix//ClassOrInterfaceType
+	 [
+	 ends-with(@Image,'VO')
+	 ]
+	 ]]>
+	     </value>
+	     </property>
+	   </properties>
+	   <priority>3</priority>
+	   <example>
+	 <![CDATA[
+	 
+	 ]]>
+	   </example>
+	 </rule>
+	 <rule  name="NeedThrowsExceptionInAppBizMethod1"
+	 	language="java"
+     since="5.0"
+	   message="Need throws Exception on method in App,Biz class"
+	   class="net.sourceforge.pmd.lang.rule.XPathRule">
+	   <description>
+	   never use BaseUtil.getBean in VO classNeed throws Exception on method in App,Biz class.
+	 Case1 'No throws Exception'
+	   </description>
+	   <properties>
+	     <property name="xpath">
+	     <value>
+	 <![CDATA[
+	 /TypeDeclaration/ClassOrInterfaceDeclaration
+	 [
+	 ends-with(@Image,'Biz')
+	 or
+	 ends-with(@Image,'App')
+	 ]
+	 //MethodDeclaration[@Public='true']/NameList/Name[@Image!='Exception']
+	 ]]>
+	     </value>
+	     </property>
+	   </properties>
+	   <priority>3</priority>
+	   <example>
+	 <![CDATA[
+	 
+	 ]]>
+	   </example>
+	 </rule>
+	 <rule  name="NeedThrowsExceptionInAppBizMethod2"
+	 	language="java"
+     since="5.0"
+	   message="Need throws Exception on method in App,Biz class"
+	   class="net.sourceforge.pmd.lang.rule.XPathRule">
+	   <description>
+	   never use BaseUtil.getBean in VO classNeed throws Exception on method in App,Biz class.
+	 Case2 'No throws'
+	   </description>
+	   <properties>
+	     <property name="xpath">
+	     <value>
+	 <![CDATA[
+	 /TypeDeclaration/ClassOrInterfaceDeclaration
+	 [
+	 ends-with(@Image,'Biz')
+	 or
+	 ends-with(@Image,'App')
+	 ]
+	 //MethodDeclaration[@Public='true'][not(NameList)]
+	 ]]>
+	     </value>
+	     </property>
+	   </properties>
+	   <priority>3</priority>
+	   <example>
+	 <![CDATA[
+	 
+	 ]]>
+	   </example>
+	 </rule>
+
+	 <rule  name="IgnoreExceptionInCatchStatement"
+	 	language="java"
+     since="5.0"
+	   message="Do not ignore Exception object by using try catch statement."
+	   class="net.sourceforge.pmd.lang.rule.XPathRule">
+	   <description>
+	   Do not ignore Exception object by using try catch statement. Redo throw Exception in CATCH block.
+	   </description>
+	   <properties>
+	     <property name="xpath">
+	     <value>
+	 <![CDATA[
+	 /TypeDeclaration/ClassOrInterfaceDeclaration
+	 [
+	 ends-with(@Image,'Biz')
+	 or
+	 ends-with(@Image,'App')
+	 or
+	 ends-with(@Image,'VO')
+	 or
+	 ends-with(@Image,'DEM')
+	 or
+	 ends-with(@Image,'DQM')
+	 ]
+	 //CatchStatement[not(descendant::ThrowStatement)]
+	 
+	 ]]>
+	     </value>
+	     </property>
+	   </properties>
+	   <priority>3</priority>
+	   <example>
+	 <![CDATA[
+	 
+	 ]]>
+	   </example>
+	 </rule>
+	 <rule  name="DoNotUseOtherException"
+	 	language="java"
+     since="5.0"
+	   message="Throw Gmes2LogicException correctly on the erros in logic in Biz,App class."
+	   class="net.sourceforge.pmd.lang.rule.XPathRule">
+	   <description>
+	   Throw Gmes2LogicException correctly on the erros in logic in Biz,App class. And also possible to use Gmes2BugException in bug situation.
+	   MUST check error code is correct and match to DB.
+	   </description>
+	   <properties>
+	     <property name="xpath">
+	     <value>
+	 <![CDATA[
+	 /TypeDeclaration/ClassOrInterfaceDeclaration
+	 [
+	 ends-with(@Image,'Biz')
+	 or
+	 ends-with(@Image,'App')
+	 
+	 ]
+	 //ThrowStatement[contains(@FirstClassOrInterfaceTypeImage,'Exception') and @FirstClassOrInterfaceTypeImage != 'Gmes2LogicException' and @FirstClassOrInterfaceTypeImage != 'Gmes2BugException' and @FirstClassOrInterfaceTypeImage != 'Gmes2WarnException']
+	 ]]>
+	     </value>
+	     </property>
+	   </properties>
+	   <priority>3</priority>
+	   <example>
+	 <![CDATA[
+	 
+	 ]]>
+	   </example>
+	 </rule>
+	 <rule  name="OnlyBaseUtilInApp"
+	 	language="java"
+     since="5.0"
+	   message="App class can only use BaseUtil(Except SM module)"
+	   class="net.sourceforge.pmd.lang.rule.XPathRule">
+	   <description>
+	   App class can only use BaseUtil(Except SM module). Using the other utils already, it should be included in BaseUtil.
+	   </description>
+	   <properties>
+	     <property name="xpath">
+	     <value>
+	 <![CDATA[
+	 /PackageDeclaration/Name[not(starts-with(@Image,'com.samsung.gmes2.sm.'))]
+	 /../../TypeDeclaration/ClassOrInterfaceDeclaration[ends-with(@Image,'App')]
+	 //PrimaryPrefix/Name
+	 [
+	 contains(substring-before(@Image,'.'),'Util') 
+	 and 
+	 substring-before(@Image,'.') != 'BaseUtil'
+	 ]
+	 ]]>
+	     </value>
+	     </property>
+	   </properties>
+	   <priority>3</priority>
+	   <example>
+	 <![CDATA[
+	 
+	 ]]>
+	   </example>
+	 </rule>
+	 <rule  name="OnlyBaseAndCrudUtilInBiz"
+	 	language="java"
+     since="5.0"
+	   message="Biz class can only use Both BaseUtil and CrudUtil(Except SM module)"
+	   class="net.sourceforge.pmd.lang.rule.XPathRule">
+	   <description>
+	   biz class can only use Both BaseUtil and CrudUtil(Except SM module). Using the other utils already, it should be included in BaseUtil.
+	   </description>
+	   <properties>
+	     <property name="xpath">
+	     <value>
+	 <![CDATA[
+	 /PackageDeclaration/Name[not(starts-with(@Image,'com.samsung.gmes2.sm.'))]
+	 /../../TypeDeclaration/ClassOrInterfaceDeclaration[ends-with(@Image,'Biz')]
+	 //PrimaryPrefix/Name
+	 [
+	 contains(substring-before(@Image,'.'),'Util') 
+	 and
+	 substring-before(@Image,'.') != 'BaseUtil'
+	 and
+	 substring-before(@Image,'.') != 'CrudUtil'
+	 and
+	 substring-before(@Image,'.') != 'ReflectionUtil'
+	 and
+	 substring-before(@Image,'.') != 'PropertyUtil'
+         and
+         substring-before(@Image,'.') != 'ValueUtil'
+	 ]
+	 ]]>
+	     </value>
+	     </property>
+	   </properties>
+	   <priority>3</priority>
+	   <example>
+	 <![CDATA[
+	 
+	 ]]>
+	   </example>
+	 </rule>
+	 <rule  name="NoDemDqmDirectly"
+	 	language="java"
+     since="5.0"
+	   message="Basic DEM, DQM must executed by CrudUtil."
+	   class="net.sourceforge.pmd.lang.rule.XPathRule">
+	   <description>
+	   Basic DEM, DQM must executed by CrudUtil. Do not directly use basic DEM, DQM in App, Biz class.
+	   These basic class can called by ManageBiz only(Manage Biz will call CrudUtil) . Except SM module.
+	   </description>
+	   <properties>
+	     <property name="xpath">
+	     <value>
+	 <![CDATA[
+	 /PackageDeclaration/Name[not(starts-with(@Image,'com.samsung.gmes2.sm.'))]
+	 /../../TypeDeclaration/ClassOrInterfaceDeclaration
+	 [
+	 ( ends-with(@Image,'Biz') or ends-with(@Image,'App') )
+	 ]
+	 //*[@Image][contains(@Image,'DEM') or (contains(@Image,'DQM') and starts-with(@Image,'Tb'))]
+	 ]]>
+	     </value>
+	     </property>
+	   </properties>
+	   <priority>3</priority>
+	   <example>
+	 <![CDATA[
+	 
+	 ]]>
+	   </example>
+	 </rule>
+	 <rule  name="OnlyCrudUtilInManageBiz"
+	 	language="java"
+     since="5.0"
+	   message="Only ManageBiz class can call CrudUtil."
+	   class="net.sourceforge.pmd.lang.rule.XPathRule">
+	   <description>
+	   Only ManageBiz class can call CrudUtil. App and Biz can not.
+	   </description>
+	   <properties>
+	     <property name="xpath">
+	     <value>
+	 <![CDATA[
+	 /PackageDeclaration/Name[not(starts-with(@Image,'com.samsung.gmes2.sm.'))]
+	 /../../TypeDeclaration/ClassOrInterfaceDeclaration
+	 [
+	 ( ends-with(@Image,'Biz') or ends-with(@Image,'App') )
+	 and
+	 not(contains(@Image,'Manage'))
+	 ]
+	 //PrimaryPrefix/Name
+	 [
+	 contains(substring-before(@Image,'.'),'Util') 
+	 and 
+	 substring-before(@Image,'.') = 'CrudUtil'
+	 ]
+	 ]]>
+	     </value>
+	     </property>
+	   </properties>
+	   <priority>3</priority>
+	   <example>
+	 <![CDATA[
+	 
+	 ]]>
+	   </example>
+	 </rule>
+	 <rule  name="DoNotGetConnection"
+	 	language="java"
+     since="5.0"
+	  message="Do not use getConnection method to connect anonymous DB."
+	  class="net.sourceforge.pmd.lang.rule.XPathRule">
+	  <description>
+	  Do not use getConnection method to connect anonymous DB.
+	  </description>
+	  <properties>
+	    <property name="xpath">
+	    <value>
+	<![CDATA[
+	/TypeDeclaration/ClassOrInterfaceDeclaration//PrimaryPrefix/Name
+	[
+	contains(@Image,'getConnection') 
+	]
+	]]>
+	    </value>
+	    </property>
+	  </properties>
+	  <priority>3</priority>
+	  <example>
+	<![CDATA[
+	
+	]]>
+	  </example>
+	</rule>
+  <rule  name="NoFinalFieldVariable"
+  	language="java"
+     since="5.0"
+  message="Can not be exist no final member variables in Biz,App and DAO."
+  class="net.sourceforge.pmd.lang.rule.XPathRule">
+  <description>
+  Can not be exist no final member variables in Biz,App and DAO. Except DEM DQM Biz class.
+  </description>
+  <properties>
+    <property name="xpath">
+    <value>
+	<![CDATA[
+	/TypeDeclaration/ClassOrInterfaceDeclaration
+	[
+	ends-with(@Image,'Biz')
+	or
+	ends-with(@Image,'App')
+	or
+	ends-with(@Image,'DAO')
+	]
+	/ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/FieldDeclaration
+	[
+	@Final='false'
+	]
+	/Type[not(contains(@TypeImage,'DEM')) and not(contains(@TypeImage,'DQM')) and not(contains(@TypeImage,'Biz'))]
+	]]>
+	    </value>
+	    </property>
+	  </properties>
+	  <priority>3</priority>
+	  <example>
+	<![CDATA[
+	package com.samsung.gmes2.sm.cmm.biz;
+	
+	public class SmEsbApprovalBiz
+	{
+	   String name="";
+	
+	    public String submit(String title, String body, String creator)
+	    {
+	        String misId = "";
+	        
+	        return misId;        
+	    }
+	}
+	]]>
+	  </example>
+	</rule>
+	<rule  name="UseGetOrCreateAppBiz"
+		language="java"
+     since="5.0"
+	  message="Can not use method prefix select and insert in App and Biz class."
+	  class="net.sourceforge.pmd.lang.rule.XPathRule">
+	  <description>
+	  Can not use method prefix select and insert in App and Biz class.
+	  </description>
+	  <properties>
+	    <property name="xpath">
+	    <value>
+	<![CDATA[
+	/TypeDeclaration/ClassOrInterfaceDeclaration
+	[
+	ends-with(@Image,'Biz')
+	or
+	ends-with(@Image,'App')
+	]
+	//MethodDeclaration
+	[
+	starts-with(@MethodName,'select') 
+	or
+	starts-with(@MethodName,'insert')
+	]
+	]]>
+	    </value>
+	    </property>
+	  </properties>
+	  <priority>3</priority>
+	  <example>
+	<![CDATA[
+	
+	]]>
+	  </example>
+	</rule>
+	<rule  name="DoNotUseSystemFunction"
+	 	language="java"
+     since="5.0"
+	  message="Do not use System.exit(), System.err(), System.out() functions"
+	  class="net.sourceforge.pmd.lang.rule.XPathRule">
+	  <description>
+	  Do not use System.exit(), System.err(), System.out() functions.
+	  </description>
+	  <properties>
+	    <property name="xpath">
+	    <value>
+	<![CDATA[
+	/TypeDeclaration/ClassOrInterfaceDeclaration//PrimaryPrefix/Name
+	[
+	contains(@Image,'System.exit')
+	or
+	contains(@Image,'System.err')
+	or
+	contains(@Image,'System.out')
+	]
+	]]>
+	    </value>
+	    </property>
+	  </properties>
+	  <priority>3</priority>
+	  <example>
+	<![CDATA[
+	package com.samsung.gmes2.sm.cmm.biz;
+	
+	public class getBizList()
+	{
+	   System.out(); // Do not use this function.
+	   System.err(); // Do not use this function.
+	   System.exit(); // Do not use this function.
+	   
+	   return;
+	}
+	]]>
+	  </example>
+	</rule>
+	<rule  name="DoNotUseOldOrgAPI"
+	 	language="java"
+     since="5.0"
+	  message="Do not use BaseUtil.toOrgAuthMap functions(Old org API)"
+	  class="net.sourceforge.pmd.lang.rule.XPathRule">
+	  <description>
+	  Do not use BaseUtil.toOrgAuthMap functions(Old org API).
+	  </description>
+	  <properties>
+	    <property name="xpath">
+	    <value>
+	<![CDATA[
+	/TypeDeclaration/ClassOrInterfaceDeclaration//PrimaryPrefix/Name
+	[
+	contains(@Image,'toOrgAuthMap')
+	]
+	]]>
+	    </value>
+	    </property>
+	  </properties>
+	  <priority>3</priority>
+	  <example>
+	<![CDATA[
+	package com.samsung.gmes2.sm.cmm.biz;
+	
+	public class getBizList()
+	{
+	   Map<String, Object> map 		= BaseUtil.toOrgAuthMap(svo.getCategoryDVO()); // Do not use old org API.
+	   
+	   return;
+	}
+	]]>
+	  </example>
+	</rule>
+	<rule name="IpUrlHardCoding"
+      language="java"
+      since="5.0"
+      message= "Check a IP or URL Hard-coding."
+      class="net.sourceforge.pmd.lang.rule.XPathRule">
+<description>
+Check a IP or URL Hard-cording.
+  </description>
+    <priority>2</priority>
+    <properties>
+       <property name="xpath">
+          <value>
+ <![CDATA[
+//PrimaryPrefix/Literal[matches(@Image, "\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}")]|
+//PrimaryPrefix/Literal[matches(@Image, "://")]
+]]>
+          </value>
+       </property>
+      </properties>
+  <example>
+  <![CDATA[
+  ]]>
+  </example>
+</rule>
+<!--
+<rule  name="UseSaveBatch"
+  message="use CrudUtil.saveBatch than save method in forstatement."
+  class="net.sourceforge.pmd.rules.XPathRule">
+  <description>
+  use CrudUtil.saveBatch than save method in forstatement.
+  </description>
+  <properties>
+    <property name="xpath">
+    <value>
+<![CDATA[
+/TypeDeclaration/ClassOrInterfaceDeclaration
+[
+ends-with(@Image,'Biz')
+or
+ends-with(@Image,'App')
+]
+//ForStatement/Statement/Block/BlockStatement
+/Statement/StatementExpression
+/PrimaryExpression/PrimaryPrefix/Name[@Image='CrudUtil.save']
+]]>
+    </value>
+    </property>
+  </properties>
+  <priority>3</priority>
+  <example>
+<![CDATA[
+public class McCmpBcrPortInfoBiz {
+
+	public Mc00230SVO listBcrInfo(Mc00230SVO svo) throws Exception {
+
+		for(int i = 0 ; i < 10 ; i++ )
+				{
+					CrudUtil.save( dvo );
+				}
+	}
+}
+
+]]>
+  </example>
+</rule>
+-->
+</ruleset>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         

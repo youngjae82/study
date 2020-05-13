@@ -1,0 +1,454 @@
+<?xml version="1.0"?>
+
+<ruleset name="GMES OI Ecmascript"
+	xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+
+	<description>Rules cust ECMAScript guidelines.</description>
+<rule ref="rulesets/ecmascript/basic.xml">
+	<exclude name="EqualComparison"/>
+	<exclude name="GlobalVariable"/>
+	<exclude name="UseBaseWithParseInt"/>
+	<exclude name="UnreachableCode"/>
+</rule>
+<rule ref="rulesets/ecmascript/braces.xml"/>
+<rule ref="rulesets/ecmascript/controversial.xml"/>
+
+
+<!-- Comm Rules-->
+<rule name="XFMCOM008"
+      language="ecmascript"
+      since="5.0"
+      message= "|XFMCOM008|: Avoid debug-codes for only developers."
+      class="net.sourceforge.pmd.lang.rule.XPathRule">
+<description>
+XFMCOM008: Avoid debug-codes for only developers.
+  </description>
+    <priority>2</priority>
+    <properties>
+       <property name="xpath">
+          <value>
+ <![CDATA[
+//Name[@Image = 'screen.alert']
+|
+//Name[@Image = "consoleprint"][ancestor::FunctionNode[@Image!="callSmartOIMethodOrEvent" and @Image!="SmartOICommonProcess"]]
+]]>
+          </value>
+       </property>
+      </properties>
+  <example>
+  <![CDATA[
+  ]]>
+  </example>
+</rule>
+
+
+<rule name="XFMCOM010"
+      language="ecmascript"
+      since="5.0"
+      message= "|XFMCOM010| : Check a possiblity of Zero-division."
+      class="net.sourceforge.pmd.lang.rule.XPathRule">
+<description>
+XFMCOM010 Check a possible of Zero-division.
+  </description>
+    <priority>2</priority>
+    <properties>
+       <property name="xpath">
+          <value>
+ <![CDATA[
+//InfixExpression[@Image = '/']
+]]>
+          </value>
+       </property>
+      </properties>
+  <example>
+  <![CDATA[
+  var a = b / c;
+  c = 0;
+  ]]>
+  </example>
+</rule>
+
+<rule name="XFMCOM011"
+      language="ecmascript"
+      since="5.0"
+      message= "|XFMCOM011| : Check a IP or URL Hard-cording."
+      class="net.sourceforge.pmd.lang.rule.XPathRule">
+<description>
+XFMCOM011 : Check a IP or URL Hard-cording.
+  </description>
+    <priority>2</priority>
+    <properties>
+       <property name="xpath">
+          <value>
+ <![CDATA[
+//StringLiteral[matches(@Image, "\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}")]
+|
+//StringLiteral[contains(@Image, "://")]
+]]>
+          </value>
+       </property>
+      </properties>
+  <example>
+  <![CDATA[
+  var c ="http://11.11.11.11";
+  ]]>
+  </example>
+</rule>
+
+
+
+<!-- OI Rules-->
+
+<rule name="XFMOIX002"
+      language="ecmascript"
+      since="5.0"
+      message= "|XFMOIX002| : Must call a B_INITIALIZE Event."
+      class="net.sourceforge.pmd.lang.rule.XPathRule">
+<description>
+XFMOIX002 : Call a B_INITIALIZE Event.
+  </description>
+    <priority>2</priority>
+    <properties>
+       <property name="xpath">
+          <value>
+ <![CDATA[
+//AstRoot//FunctionNode[@Image='smartOIEventProcess'][count(descendant-or-self::StringLiteral[@Image='B_INITIALIZE'])<1]
+]]>
+          </value>
+       </property>
+      </properties>
+  <example>
+  <![CDATA[
+function ON_LOADINIT(){
+}
+  ]]>
+  </example>
+</rule>
+
+<rule name="XFMOIX004"
+      language="ecmascript"
+      since="5.0"
+      message= "|XFMOIX004| : Avoid to call 'CallSmartOIEvent' in 'fnOn~' funtions.(expect C_MESSAGE_SET) Because, it can occur an infinite-Loop."
+      class="net.sourceforge.pmd.lang.rule.XPathRule">
+<description>
+   Avoid calling 'CallSmartOIEvent' in 'fnOn~' funtions. Because, it can occur an infinite-Loop.
+  </description>
+    <priority>2</priority>
+    <properties>
+       <property name="xpath">
+          <value>
+ <![CDATA[
+//FunctionCall[count(descendant-or-self::StringLiteral[@Image='C_MESSAGE_SET'])<1]//Name[@Image='CallSmartOIEvent'][ancestor::FunctionNode[starts-with(@Image, 'fnOn')]]
+]]>
+          </value>
+       </property>
+      </properties>
+  <example>
+  <![CDATA[
+
+case"C_PO_SELECT":
+   fnOnPoSelectEvent();
+  break;
+
+function fnOnPoSelectEvent()
+{
+      mMainMembers.CallSmartOIEvent(screen.getscreenid(), "C_REPRINT_EVENT");
+}
+  ]]>
+  </example>
+</rule>
+
+<rule name="XFMOIX005"
+      language="ecmascript"
+      since="5.0"
+      message= "|XFMOIX005| : Use fnOnInitializeEvent funtion only in IF-Statement."
+      class="net.sourceforge.pmd.lang.rule.XPathRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-javascript/rules/ecmascript/basic.html#AssignmentInOperand">
+<description>
+   Use only IF-statement in fnOnInitializeEvent funtion
+  </description>
+    <priority>2</priority>
+    <properties>
+       <property name="xpath">
+          <value>
+ <![CDATA[
+//AstRoot//FunctionNode[@Image='a']//Block[1][child::ExpressionStatement]
+|
+//AstRoot//FunctionNode[@Image='a']//Block[1][child::VariableDeclaration]
+|
+//AstRoot//FunctionNode[@Image='a']//Block[1][child::ForLoop]
+|
+//AstRoot//FunctionNode[@Image='a']//Block[1][child::WhileLoop]
+]]>
+          </value>
+       </property>
+      </properties>
+  <example>
+  <![CDATA[
+Good : 
+function fnOnInitializeEvent()
+{
+if( mMainTarget.findscriptmethod(XFD_JAVASCRIPT,"RegisterSmartOIEventHandler") == true )
+{mMainMembers.RegisterSmartOIEventHandler(screen.getscreenid(),"B_INITIALIZE","fnOnInitializeEvent");}
+}
+
+Bad : 
+function fnOnInitializeEvent()
+{
+mMainMembers.RegisterSmartOIEventHandler(screen.getscreenid(),"B_INITIALIZE","fnOnInitializeEvent");
+if( mMainTarget.findscriptmethod(XFD_JAVASCRIPT,"RegisterSmartOIEventHandler") == true )
+...
+if( mMainTarget.findscriptmethod(XFD_JAVASCRIPT,"getSmartOICommonXDataSetData") == true )
+}
+  ]]>
+  </example>
+</rule>
+
+
+<rule name="XFMOIX006"
+      language="ecmascript"
+      since="5.0"
+      message= "|XFMUIX006| : You need a function that screen_on_submitcomplete()."
+      class="net.sourceforge.pmd.lang.rule.XPathRule">
+<description>
+You need function that "screen_on_submitcomplete"
+  </description>
+    <priority>2</priority>
+    <properties>
+       <property name="xpath">
+          <value>
+ <![CDATA[
+    //AstRoot[not(FunctionNode[@Image='screen_on_submitcomplete'])]
+]]>
+          </value>
+       </property>
+      </properties>
+  <example>
+  <![CDATA[
+function screen_on_submitcomplete(){
+
+}
+  ]]>
+  </example>
+</rule>
+
+<rule name="XFMOIX007"
+      language="ecmascript"
+      since="5.0"
+      message= "|XFMOIX007| : You need to call doSubmitcomplete() funtion on the first line in screen_on_submitcomplete()."
+      class="net.sourceforge.pmd.lang.rule.XPathRule">
+<description>
+XFMOIX007 : You need to call doSubmitcomplete function first in screen_on_submitcomplete
+  </description>
+    <priority>2</priority>
+    <properties>
+       <property name="xpath">
+          <value>
+ <![CDATA[
+//FunctionNode[@Image='screen_on_submitcomplete'][count(descendant-or-self::Name[@Image='doSubmitcomplete'])<1]
+|
+//FunctionNode[@Image='screen_on_submitcomplete']//ExpressionStatement[preceding-sibling::node()]//Name[@Image='doSubmitcomplete']
+]]>
+          </value>
+       </property>
+      </properties>
+  <example>
+  <![CDATA[
+function screen_on_submitcomplete(){
+
+}
+  ]]>
+  </example>
+</rule>
+
+<!--  
+<rule name="XFMOIX008"
+      language="ecmascript"
+      since="5.0"
+      message= "|XFMOIX008| : You need IF-ELSE Statement in screen_on_submitcomplete() when result is false."
+      class="net.sourceforge.pmd.lang.rule.XPathRule">
+<description>
+XFMOIX008 : You need IF-ELSE Statement for result for false in screen_on_submitcomplete
+  </description>
+    <priority>2</priority>
+    <properties>
+       <property name="xpath">
+          <value>
+ <![CDATA[
+//FunctionNode[@Image ='screen_on_submitcomplete']//IfStatement[@Else = "false"]
+]]>
+          </value>
+       </property>
+      </properties>
+  <example>
+  <![CDATA[
+function screen_on_submitcomplete(){
+
+}
+  ]]>
+  </example>
+</rule>
+-->
+
+<rule name="XFMOIX009"
+      language="ecmascript"
+      since="5.0"
+      message= "|XFMOIX009| : If you use showLoadingImage, you have to use hideLoadingImage in screen_on_submitcomplete"
+      class="net.sourceforge.pmd.lang.rule.XPathRule">
+<description>
+XFMOIX009 : If you use showLoadingImage, you have to use hideLoadingImage in screen_on_submitcomplete
+  </description>
+    <priority>2</priority>
+    <properties>
+       <property name="xpath">
+          <value>
+ <![CDATA[
+//AstRoot[count(descendant-or-self::Name[@Image='hideLoadingImage']
+[ancestor-or-self::FunctionNode[@Image = 'screen_on_submitcomplete']])<1]
+[count(descendant-or-self::Name[@Image='showLoadingImage'])>0]
+]]>
+          </value>
+       </property>
+      </properties>
+  <example>
+  <![CDATA[
+function screen_on_submitcomplete(){
+
+}
+  ]]>
+  </example>
+</rule>
+
+<rule name="XFMOIX013"
+      language="ecmascript"
+      since="5.0"
+      message= "|XFMOIX013| : Assign Index Variable using Var in ForStatement."
+      class="net.sourceforge.pmd.lang.rule.XPathRule">
+<description>
+XFMOIX013 : Use Local Variable in ForStatement.
+  </description>
+    <priority>2</priority>
+    <properties>
+       <property name="xpath">
+          <value>
+ <![CDATA[
+//ForLoop[count(child::VariableDeclaration)<1]
+]]>
+          </value>
+       </property>
+      </properties>
+  <example>
+  <![CDATA[
+
+  ]]>
+  </example>
+</rule>
+
+<rule name="XFMOIX016"
+      language="ecmascript"
+      since="5.0"
+      message= "|XFMOIX016| : There are more then 1 function which is confirmScanDataRead(). "
+      class="net.sourceforge.pmd.lang.rule.XPathRule">
+<description>
+XFMOIX013 : IF you
+  </description>
+    <priority>2</priority>
+    <properties>
+       <property name="xpath">
+          <value>
+ <![CDATA[
+//Block[count(child::ExpressionStatement[descendant-or-self :: Name[@Image="confirmScanDataRead"]])>1]
+|
+//Scope[count(child::ExpressionStatement[descendant-or-self :: Name[@Image="confirmScanDataRead"]])>1]
+]]>
+          </value>
+       </property>
+      </properties>
+  <example>
+  <![CDATA[
+function fnOnPoSelectEvent()
+{
+    for(i=0; i<resultDvo.getrowcount();i++)  
+    {
+        mMainMembers.confirmScanDataRead();
+		...
+		mMainMembers.confirmScanDataRead();
+    }
+
+}
+
+  ]]>
+  </example>
+</rule>
+
+<rule name="XFMUIX016"
+      language="ecmascript"
+      since="5.0"
+      message= "|XFMUIX016| : If you use Timer, you have to pause itself using setenable(false)."
+      class="net.sourceforge.pmd.lang.rule.XPathRule">
+<description>
+XFMUIX016 : If you use Timer, you have to pause itself using setenable(false).
+  </description>
+    <priority>2</priority>
+    <properties>
+       <property name="xpath">
+          <value>
+ <![CDATA[
+//FunctionNode[starts-with(@Image, 'tmr')]//ExpressionStatement[preceding-sibling::node()]//Name[@Image='setenable']
+|
+//FunctionNode[starts-with(@Image, 'tmr')]//ExpressionStatement[count(descendant-or-self::Name[@Image='setenable'])>0]//KeywordLiteral[@Image!='false']
+]]>
+          </value>
+       </property>
+      </properties>
+  <example>
+  <![CDATA[
+  ]]>
+  </example>
+</rule>
+
+
+<rule name="UnreachableCode_Custom"
+    		 language="ecmascript"
+    		  since="5.0"
+       message="A ''return'', ''break'', ''continue'', or ''throw'' statement should be the last in a block.(except callSmartOIMethodOrEvent, SmartOICommonProcess)"
+          class="net.sourceforge.pmd.lang.rule.XPathRule"
+          externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-javascript/rules/ecmascript/basic.html#UnreachableCode">
+      <description>
+A 'return', 'break', 'continue', or 'throw' statement should be the last in a block. Statements after these
+will never execute.  This is a bug, or extremely poor style.
+      </description>
+      <priority>1</priority>
+        <properties>
+            <property name="xpath">
+                <value>
+ <![CDATA[
+	//ReturnStatement[following-sibling::node()][ancestor::FunctionNode[@Image!="callSmartOIMethodOrEvent" and @Image!="SmartOICommonProcess"]]
+|
+	//ContinueStatement[following-sibling::node()][ancestor::FunctionNode[@Image!="callSmartOIMethodOrEvent" and @Image!="SmartOICommonProcess"]]
+|
+	//BreakStatement[following-sibling::node()][ancestor::FunctionNode[@Image!="callSmartOIMethodOrEvent" and @Image!="SmartOICommonProcess"]]
+|
+	//ThrowStatement[following-sibling::node()][ancestor::FunctionNode[@Image!="callSmartOIMethodOrEvent" and @Image!="SmartOICommonProcess"]]
+]]>
+                </value>
+            </property>
+        </properties>
+      <example>
+  <![CDATA[
+// Ok
+function foo() {
+   return 1;
+}
+// Bad
+function bar() {
+   var x = 1;
+   return x;
+   x = 2;
+}
+]]>
+      </example>
+    </rule>
+</ruleset>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ruleset xmlns="http://pmd.sf.net/ruleset/1.0.0" name="pmd-ruleset-v3-3.2.3over" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://pmd.sf.net/ruleset_xml_schema.xsd" xsi:schemaLocation="http://pmd.sf.net/ruleset/1.0.0 http://pmd.sf.net/ruleset_xml_schema.xsd">
+   <description>PMD Plugin preferences rule set</description>
+   <rule ref="rulesets/java/empty.xml/EmptyCatchBlock"/>
+   <rule ref="rulesets/java/empty.xml/EmptyFinallyBlock"/>
+   <rule ref="rulesets/java/empty.xml/EmptyIfStmt"/>
+   <rule ref="rulesets/java/empty.xml/EmptyStatementNotInLoop"/>
+   <rule ref="rulesets/java/empty.xml/EmptyTryBlock"/>
+   <rule ref="rulesets/java/empty.xml/EmptyWhileStmt"/>
+   <rule ref="rulesets/java/unnecessary.xml/UnnecessaryConversionTemporary"/>
+   <rule ref="rulesets/java/braces.xml/WhileLoopsMustUseBraces"/>
+   <rule ref="rulesets/java/controversial.xml/UnnecessaryConstructor"/>
+   <rule ref="rulesets/java/controversial.xml/UnnecessaryParentheses"/>
+   <rule ref="rulesets/java/controversial.xml/NullAssignment"/>
+   <rule ref="rulesets/java/controversial.xml/DoNotCallGarbageCollectionExplicitly"/>
+   <rule ref="rulesets/java/design.xml/AbstractClassWithoutAbstractMethod"/>
+   <rule ref="rulesets/java/design.xml/AssignmentToNonFinalStatic"/>
+   <rule ref="rulesets/java/design.xml/AvoidConstantsInterface"/>
+   <rule ref="rulesets/java/design.xml/AvoidReassigningParameters"/>
+   <rule ref="rulesets/java/design.xml/AvoidSynchronizedAtMethodLevel"/>
+   <rule ref="rulesets/java/design.xml/EqualsNull"/>
+   <rule ref="rulesets/java/design.xml/FinalFieldCouldBeStatic"/>
+   <rule ref="rulesets/java/design.xml/ImmutableField"/>
+   <!--<rule ref="rulesets/design.xml/SimpleDateFormatNeedsLocale"/>-->
+   <rule ref="rulesets/java/design.xml/SimplifyBooleanExpressions"/>
+   <rule ref="rulesets/java/design.xml/SingularField"/>
+   <rule ref="rulesets/java/design.xml/SwitchStmtsShouldHaveDefault"/>
+   <rule ref="rulesets/java/design.xml/UncommentedEmptyMethod"/>
+   <rule ref="rulesets/java/design.xml/UnnecessaryLocalBeforeReturn"/>
+   <rule ref="rulesets/java/design.xml/CloseResource"/>
+   <rule ref="rulesets/java/design.xml/BadComparison"/>
+   <rule ref="rulesets/java/design.xml/IdempotentOperations"/>
+   <rule ref="rulesets/java/imports.xml/DuplicateImports"/>
+   <rule ref="rulesets/java/imports.xml/ImportFromSamePackage"/>
+   <rule ref="rulesets/java/logging-java.xml/SystemPrintln"/>
+   <rule ref="rulesets/java/naming.xml/MisleadingVariableName"/>
+   <rule ref="rulesets/java/naming.xml/VariableNamingConventions">
+   <properties>
+		<property name="memberPrefix" value="_"/>
+	 </properties>
+	 </rule>
+   <rule ref="rulesets/java/optimizations.xml/AvoidArrayLoops"/>
+   <rule ref="rulesets/java/optimizations.xml/UnnecessaryWrapperObjectCreation"/>
+   <rule ref="rulesets/java/strictexception.xml/AvoidThrowingNullPointerException"/>
+   <!--rule ref="rulesets/strictexception.xml/AvoidThrowingRawExceptionTypes"/-->
+   <rule ref="rulesets/java/strings.xml/InefficientEmptyStringCheck"/>
+   <rule ref="rulesets/java/strings.xml/InefficientStringBuffering"/>
+   <rule ref="rulesets/java/strings.xml/StringInstantiation"/>
+   <rule ref="rulesets/java/strings.xml/StringToString"/>
+   <rule ref="rulesets/java/strings.xml/UselessStringValueOf"/>
+   <rule ref="rulesets/java/unusedcode.xml/UnusedFormalParameter"/>
+   <rule ref="rulesets/java/unusedcode.xml/UnusedPrivateField"/>
+   <rule ref="rulesets/java/unusedcode.xml/UnusedPrivateMethod"/>
+   <rule ref="rulesets/java/basic.xml/BrokenNullCheck"/>
+   <rule ref="rulesets/java/basic.xml/AvoidUsingHardCodedIP"/>
+   <rule ref="rulesets/java/basic.xml/CheckResultSet"/>
+   <rule ref="rulesets/java/codesize.xml/CyclomaticComplexity">
+   <properties>
+		<property name="showMethodsComplexity" value="true"/>
+		<property name="showClassesComplexity" value="false"/>
+		<property name="reportLevel" value="200"/>
+	 </properties>
+	 </rule>
+   <rule ref="rulesets/java/design.xml/CompareObjectsWithEquals"/>
+   <rule ref="rulesets/java/unusedcode.xml/UnusedLocalVariable"/>
+   <rule ref="rulesets/java/empty.xml/EmptySwitchStatements"/>
+   <rule ref="rulesets/java/empty.xml/EmptySynchronizedBlock"/>
+   <rule ref="rulesets/java/empty.xml/EmptyStaticInitializer"/>
+   <rule ref="rulesets/java/basic.xml/UnconditionalIfStatement"/>
+   <rule ref="rulesets/java/basic.xml/MisplacedNullCheck"/>
+   <rule ref="rulesets/java/basic.xml/ReturnFromFinallyBlock"/>
+   <rule ref="rulesets/java/basic.xml/AvoidUsingOctalValues"/>
+   <rule ref="rulesets/java/braces.xml/IfStmtsMustUseBraces"/>
+   <rule ref="rulesets/java/braces.xml/IfElseStmtsMustUseBraces"/>
+   <rule ref="rulesets/java/braces.xml/ForLoopsMustUseBraces"/>
+   <rule ref="rulesets/java/coupling.xml/LooseCoupling"/>
+   <rule ref="rulesets/java/design.xml/DefaultLabelNotLastInSwitchStmt"/>
+   <rule ref="rulesets/java/design.xml/NonCaseLabelInSwitchStatement"/>
+   <rule ref="rulesets/java/design.xml/MissingBreakInSwitch"/>
+   <rule ref="rulesets/java/design.xml/UncommentedEmptyConstructor"/>
+   <rule ref="rulesets/java/j2ee.xml/UseProperClassLoader"/>
+   <rule ref="rulesets/java/j2ee.xml/DoNotCallSystemExit"/>
+   <rule ref="rulesets/java/logging-java.xml/AvoidPrintStackTrace"/>
+   <rule ref="rulesets/java/naming.xml/MethodNamingConventions"/>
+   <rule ref="rulesets/java/naming.xml/ClassNamingConventions"/>
+   <rule ref="rulesets/java/naming.xml/SuspiciousConstantFieldName"/>
+   <rule ref="rulesets/java/naming.xml/AvoidFieldNameMatchingTypeName"/>
+   <rule ref="rulesets/java/naming.xml/AvoidFieldNameMatchingMethodName"/>
+   <rule ref="rulesets/java/naming.xml/PackageCase"/>
+   <rule ref="rulesets/java/strings.xml/UseEqualsToCompareStrings"/>
+   <rule ref="rulesets/java/unnecessary.xml/UnnecessaryReturn"/>
+   <rule ref="rulesets/java/unnecessary.xml/UselessOperationOnImmutable"/>
+   <rule ref="rulesets/java/design.xml/PositionLiteralsFirstInComparisons"/>
+   <rule ref="rulesets/java/design.xml/UseCollectionIsEmpty"/>
+   <rule ref="rulesets/java/imports.xml/UnusedImports"/>
+   <rule ref="rulesets/java/strings.xml/UnnecessaryCaseChange"/>
+   <rule ref="rulesets/java/controversial.xml/AvoidFinalLocalVariable"/>
+   <rule ref="rulesets/java/j2ee.xml/DoNotUseThreads"/>
+   <rule ref="rulesets/java/strictexception.xml/AvoidCatchingNPE"/>
+
+ <rule  name="NotExistBatchVersion"
+	 	language="java"
+     since="5.0"
+	   message="Batch Version API is needed.(BaseUtil.setPgmVerReg())"
+	   class="net.sourceforge.pmd.lang.rule.XPathRule">
+	   <description>
+	   Batch Version API is needed.(BaseUtil.setPgmVerReg()).
+	   </description>
+	   <properties>
+	     <property name="xpath">
+	     <value>
+	 <![CDATA[
+	 MethodDeclaration[@MethodName='execute']
+	//PrimaryPrefix/Name[count(descendant-or-self::Name[@Image='BaseUtil.setPgmVerReg'])<1]
+	 ]]>
+	     </value>
+	     </property>
+	   </properties>
+	   <priority>3</priority>
+	   <example>
+	 <![CDATA[
+	 
+	 ]]>
+	   </example>
+	 </rule>
+<rule name="IpUrlHardCoding"
+      language="java"
+      since="5.0"
+      message= "Check a IP or URL Hard-coding."
+      class="net.sourceforge.pmd.lang.rule.XPathRule">
+<description>
+Check a IP or URL Hard-cording.
+  </description>
+    <priority>2</priority>
+    <properties>
+       <property name="xpath">
+          <value>
+ <![CDATA[
+//PrimaryPrefix/Literal[matches(@Image, "\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}")]|
+//PrimaryPrefix/Literal[matches(@Image, "://")]
+]]>
+          </value>
+       </property>
+      </properties>
+  <example>
+  <![CDATA[
+  ]]>
+  </example>
+</rule>
+
+</ruleset>

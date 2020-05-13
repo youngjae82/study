@@ -1,0 +1,375 @@
+<?xml version="1.0"?>
+
+<ruleset name="GMES UI Ecmascript"
+	xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+
+	<description>Rules concerning basic ECMAScript guidelines.</description>
+
+<rule ref="rulesets/ecmascript/basic.xml">
+	<exclude name="EqualComparison"/>
+	<exclude name="GlobalVariable"/>
+	<exclude name="UseBaseWithParseInt"/>
+</rule>
+<rule ref="rulesets/ecmascript/braces.xml"/>
+<rule ref="rulesets/ecmascript/controversial.xml"/>
+
+<!-- Comm Rules-->
+<rule name="XFMCOM008"
+      language="ecmascript"
+      since="5.0"
+      message= "|XFMCOM008|: Avoid debug-codes for only developers."
+      class="net.sourceforge.pmd.lang.rule.XPathRule">
+<description>
+XFMCOM008: Avoid debug-codes for only developers.
+  </description>
+    <priority>2</priority>
+    <properties>
+       <property name="xpath">
+          <value>
+ <![CDATA[
+//Name[@Image = 'screen.alert']
+|
+//Name[@Image = "consoleprint"]
+]]>
+          </value>
+       </property>
+      </properties>
+  <example>
+  <![CDATA[
+  ]]>
+  </example>
+</rule>
+
+
+<rule name="XFMCOM010"
+      language="ecmascript"
+      since="5.0"
+      message= "|XFMCOM010| : Check a possiblity of Zero-division."
+      class="net.sourceforge.pmd.lang.rule.XPathRule">
+<description>
+XFMCOM010 Check a possible of Zero-division.
+  </description>
+    <priority>2</priority>
+    <properties>
+       <property name="xpath">
+          <value>
+ <![CDATA[
+ //InfixExpression[@Image = '/']
+]]>
+          </value>
+       </property>
+      </properties>
+  <example>
+  <![CDATA[
+  ]]>
+  </example>
+</rule>
+
+<rule name="XFMCOM011"
+      language="ecmascript"
+      since="5.0"
+      message= "|XFMCOM011| : Check a IP or URL Hard-cording."
+      class="net.sourceforge.pmd.lang.rule.XPathRule">
+<description>
+XFMCOM011 : Check a IP or URL Hard-cording.
+  </description>
+    <priority>2</priority>
+    <properties>
+       <property name="xpath">
+          <value>
+ <![CDATA[
+//StringLiteral[matches(@Image, "\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}")]
+|
+//StringLiteral[contains(@Image, "://")]
+]]>
+          </value>
+       </property>
+      </properties>
+  <example>
+  <![CDATA[
+  ]]>
+  </example>
+</rule>
+
+
+<!-- UI rules-->
+<rule name="XFMUIX003"
+      language="ecmascript"
+      since="5.0"
+      message= "|XFMUIX003|:There are problums ON_LOADINIT funtion."
+      class="net.sourceforge.pmd.lang.rule.XPathRule">
+<description>
+You need funciotn that "ON_LOADINIT"
+  </description>
+    <priority>2</priority>
+    <properties>
+       <property name="xpath">
+          <value>
+ <![CDATA[
+    //AstRoot[$existsFuntion = "false"][not(FunctionNode[@Image='ON_LOADINIT'])]
+	|
+	//AstRoot[$returnTrue = "false"]//FunctionNode[@Image='ON_LOADINIT']//ReturnStatement[not(KeywordLiteral[@Image='true'])]
+]]>
+          </value>
+       </property>
+        <property name="existsFuntion" type="Boolean" value="false" description="There is no ON_LOADINIT function." />
+        <property name="returnTrue" type="Boolean" value="false" description="Return value of ON_LOADINIT function is not true." />
+      </properties>
+  <example>
+  <![CDATA[
+  ]]>
+  </example>
+</rule>
+
+<rule name="XFMUIX004"
+      language="ecmascript"
+      since="5.0"
+      message= "|XFMUIX004| : You need a GETDATA()."
+      class="net.sourceforge.pmd.lang.rule.XPathRule">
+<description>
+You need funciotn that GETDATA().
+  </description>
+    <priority>2</priority>
+    <properties>
+       <property name="xpath">
+          <value>
+ <![CDATA[
+    //AstRoot[not(FunctionNode[@Image='GETDATA'])]
+]]>
+          </value>
+       </property>
+      </properties>
+  <example>
+  <![CDATA[
+  ]]>
+  </example>
+</rule>
+
+<rule name="XFMUIX006"
+      language="ecmascript"
+      since="5.0"
+      message= "|XFMUIX006| : You need a screen_on_load()."
+      class="net.sourceforge.pmd.lang.rule.XPathRule">
+<description>
+You need function that screen_on_load().
+  </description>
+    <priority>2</priority>
+    <properties>
+       <property name="xpath">
+          <value>
+ <![CDATA[
+    //AstRoot[not(FunctionNode[@Image='screen_on_load'])]
+]]>
+          </value>
+       </property>
+      </properties>
+  <example>
+  <![CDATA[
+  ]]>
+  </example>
+</rule>
+
+<rule name="XFMUIX007"
+      language="ecmascript"
+      since="5.0"
+      message= "|XFMUIX007| : You need to call screenLoadInitialize() funtion on the first line in screen_on_load()."
+      class="net.sourceforge.pmd.lang.rule.XPathRule">
+<description>
+You need to call screenLoadInitialize() function on the first line in screen_on_load().
+  </description>
+    <priority>2</priority>
+    <properties>
+       <property name="xpath">
+          <value>
+ <![CDATA[
+//FunctionNode[@Image='screen_on_load'][count(descendant-or-self::Name[@Image='screenLoadInitialize'])<1]
+|
+//FunctionNode[@Image='screen_on_load']//ExpressionStatement[preceding-sibling::node()]//Name[@Image='screenLoadInitialize']
+]]>
+          </value>
+       </property>
+      </properties>
+  <example>
+  <![CDATA[
+  ]]>
+  </example>
+</rule>
+
+
+<rule name="XFMUIX009"
+      language="ecmascript"
+      since="5.0"
+      message= "|XFMUIX009| : You need a screen_on_destroy()."
+      class="net.sourceforge.pmd.lang.rule.XPathRule">
+<description>
+You need function that screen_on_destroy().
+  </description>
+    <priority>2</priority>
+    <properties>
+       <property name="xpath">
+          <value>
+ <![CDATA[
+    //AstRoot[not(FunctionNode[@Image='screen_on_destroy'])]
+]]>
+          </value>
+       </property>
+      </properties>
+  <example>
+  <![CDATA[
+  ]]>
+  </example>
+</rule>
+
+<rule name="XFMUIX011"
+      language="ecmascript"
+      since="5.0"
+      message= "|XFMUIX011| : You need to call releaseRes() function first in screen_on_destroy"
+      class="net.sourceforge.pmd.lang.rule.XPathRule">
+<description>
+XFMUIX011 : You need to call releaseRes() function first in screen_on_destroy
+  </description>
+    <priority>2</priority>
+    <properties>
+       <property name="xpath">
+          <value>
+ <![CDATA[
+//FunctionNode[@Image='screen_on_destroy'][count(descendant-or-self::Name[@Image='releaseRes'])<1]
+]]>
+          </value>
+       </property>
+      </properties>
+  <example>
+  <![CDATA[
+}
+  ]]>
+  </example>
+</rule>
+
+<rule name="XFMUIX012"
+      language="ecmascript"
+      since="5.0"
+      message= "|XFMUIX012| : You need a function that screen_on_submitcomplete()."
+      class="net.sourceforge.pmd.lang.rule.XPathRule">
+<description>
+XFMUIX012 : You need function that "screen_on_submitcomplete"
+  </description>
+    <priority>2</priority>
+    <properties>
+       <property name="xpath">
+          <value>
+ <![CDATA[
+    //AstRoot[not(FunctionNode[@Image='screen_on_submitcomplete'])]
+]]>
+          </value>
+       </property>
+      </properties>
+  <example>
+  <![CDATA[
+  ]]>
+  </example>
+</rule>
+
+<rule name="XFMUIX013"
+      language="ecmascript"
+      since="5.0"
+      message= "|XFMUIX013| : You need to call doSubmitcomplete() funtion on the first line in screen_on_submitcomplete()."
+      class="net.sourceforge.pmd.lang.rule.XPathRule">
+<description>
+XFMUIX013 : You need to call doSubmitcomplete function first in screen_on_submitcomplete
+  </description>
+    <priority>2</priority>
+    <properties>
+       <property name="xpath">
+          <value>
+ <![CDATA[
+//FunctionNode[@Image='screen_on_submitcomplete'][count(descendant-or-self::Name[@Image='doSubmitcomplete'])<1]
+|
+//FunctionNode[@Image='screen_on_submitcomplete']//ExpressionStatement[preceding-sibling::node()]//Name[@Image='doSubmitcomplete']
+]]>
+          </value>
+       </property>
+      </properties>
+  <example>
+  <![CDATA[
+}
+  ]]>
+  </example>
+</rule>
+
+<!--  
+<rule name="XFMUIX014"
+      language="ecmascript"
+      since="5.0"
+      message= "|XFMUIX014| : You need IF-ELSE Statement in screen_on_submitcomplete() when result is false."
+      class="net.sourceforge.pmd.lang.rule.XPathRule">
+<description>
+XFMUIX014 : You need IF-ELSE Statement for result for false in screen_on_submitcomplete
+  </description>
+    <priority>2</priority>
+    <properties>
+       <property name="xpath">
+          <value>
+ <![CDATA[
+//FunctionNode[@Image ='screen_on_submitcomplete']//IfStatement[@Else = "false"]
+]]>
+          </value>
+       </property>
+      </properties>
+  <example>
+  <![CDATA[
+  ]]>
+  </example>
+</rule>
+-->
+
+<rule name="XFMUIX015"
+      language="ecmascript"
+      since="5.0"
+      message= "|XFMUIX015| : Assign Index Variable using Var in ForStatement."
+      class="net.sourceforge.pmd.lang.rule.XPathRule">
+<description>
+XFMUIX015 : Use Local Variable in ForStatement.
+  </description>
+    <priority>2</priority>
+    <properties>
+       <property name="xpath">
+          <value>
+ <![CDATA[
+//ForLoop[count(child::VariableDeclaration)<1]
+]]>
+          </value>
+       </property>
+      </properties>
+  <example>
+  <![CDATA[
+  ]]>
+  </example>
+</rule>
+
+<rule name="XFMUIX016"
+      language="ecmascript"
+      since="5.0"
+      message= "|XFMUIX016| : If you use Timer, you have to pause itself using setenable(false)."
+      class="net.sourceforge.pmd.lang.rule.XPathRule">
+<description>
+XFMUIX016 : If you use Timer, you have to pause itself using setenable(false).
+  </description>
+    <priority>2</priority>
+    <properties>
+       <property name="xpath">
+          <value>
+ <![CDATA[
+//FunctionNode[starts-with(@Image, 'tmr')][count(descendant::ExpressionStatement[child::FunctionCall//PropertyGet//Name[starts-with(@Image, 'tmr')]][child::FunctionCall//KeywordLiteral[@Image='false']])<1]
+]]>
+          </value>
+       </property>
+      </properties>
+  <example>
+  <![CDATA[
+  ]]>
+  </example>
+</rule>
+
+</ruleset>
